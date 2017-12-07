@@ -4,7 +4,7 @@
 代码写的很拙劣，如果有人愿意和我一起完善他真是大大的感谢啦！
 
 ##官方文档地址
-地址：https://mp.weixin.qq.com/debug/wxadoc/dev/index.html
+https://mp.weixin.qq.com/debug/wxadoc/dev/index.html
 
 2017年12月7日10:05:27
 第一次提交。page中是项目代码，目前写了个人中心主页和商品详情页。
