@@ -1,0 +1,15 @@
+  <!--index.wxml-->
+<view class="container">
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+      <text class="user-motto">{{motto}}，{{userInfo.nickName}}</text>
+    </block>
+  </view>
+  <view class="usermotto">
+    <text style='display:block;font-size:12px;margin-top:20px;color:#c5c5c5'>欢迎光临淘金镇</text>
+    <icon class="iconfont icon-gouwuche"></icon>
+  </view>
+  <text>倒数计时：{{day}}:{{hr}}:{{min}}:{{sec}}</text>
+</view>

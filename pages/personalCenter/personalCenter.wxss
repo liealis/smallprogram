@@ -1,0 +1,63 @@
+/**个人中心-------personalCenter.wxss**/
+/* 公共样式 */
+.font-24{font-size: 24rpx;}
+.color-black-light{color: #555;}
+.marginTop30{margin-top: 30rpx;}
+.border-bottom{border-bottom:1rpx solid #f1f2f3 }
+.content{
+  height: 1334px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  background-color: #f1f2f3;
+}
+/*
+ *头像和名字部分
+ */
+.container-top{
+  text-align: center;
+  padding: 20rpx 0;
+}
+.userinfo-avatar {
+  width: 108rpx;
+  height: 108rpx;
+  margin: 10rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: #fff;
+  display: block
+}
+/*
+  *订单状态栏
+  */
+.container-orderBar{
+  flex-direction: row;
+  width: 100%;
+  height: 110rpx;
+  
+}
+.container-orderBar-text{
+  width: 4rem;
+  height: 110rpx;
+  line-height: 110rpx;
+  text-align: center;
+  display: inline-block;
+  background-color: #fff;
+}
+/* 功能模块 */
+.modular-Bar{
+  flex-direction: row;
+  width: 100%;
+  height: 120rpx;
+}
+.modular-orderBar-text{
+  height: 110rpx;
+  width:  5rem;
+  line-height: 110rpx;
+  text-align: center;
+  display: inline-block;
+  background-color: #fff;
+}

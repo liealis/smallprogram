@@ -1,0 +1,195 @@
+<view class='container'>
+<!-- 
+  商品主图部分
+  图片从imgUrls数组中遍历
+ -->
+   <view class='product-img bgc-white center'>
+    <swiper indicator-dots="true" autoplay="{{autoplay}}" style='width:600rpx;height:600rpx;'> 
+      <block wx:for="{{imgUrls}}" wx:key="key">
+        <swiper-item>
+          <image src="{{item}}" class="slide-image" style='width:600rpx;height:600rpx;' mode='scaleToFill'/>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view> 
+  <!-- 倒计时模块 -->
+  <canvas class='countDown font-white center font24' canvas-id='countDowm' style='width:{{windowWidth}};height:20pt;line-height:20pt'>
+    <view wx:if='{{clockStatus > 0}}'>
+      <text>距结束:</text>
+      <text class='countDown-box inline-block font22 font-black center'>{{day}}</text>天
+      <text class='countDown-box inline-block font22 font-black center'>{{hr}}</text>时
+      <text class='countDown-box inline-block font22 font-black center'>{{min}}</text>分
+      <text class='countDown-box inline-block font22 font-black center'>{{sec}}</text>秒
+    </view>
+    <view wx:elif='{{clockStatus <= 0}}'>
+      <text>{{clock}}</text>
+    </view>
+  </canvas>
+  
+  <!-- 商品名称 & 价格部分 -->
+   <view class='product-info bgc-white'>
+    <text class='font28 bolder'>远离经期紊乱 做好“孕”女人</text>
+    <view class='product-info-price'>
+      <text class='font32 font-black bold'>￥ 89.00</text>
+      <text class='font24 font-grey-light line-through margin-left20'>￥ 247.00</text>
+    </view>
+    <view class='product-info-name center'>
+     <text class='font24'>Blackmores 澳佳宝 天然圣洁莓 女性内分泌荷尔蒙调节片 40粒</text>
+    </view>
+  </view> 
+
+  <!-- 促销标签 -->
+  <view class='product-promotion-label'>
+    <view class='promotion-text-left center font26 '>
+      <text class='font18 margin-left20'>促销</text>
+    </view>
+    <block>
+      <view class='promotion-text-right '>
+        <view class='promotion-content-detail center'>
+        <text class='font18 font-brown'>促销促销促销</text>
+        </view>
+        <view class='promotion-content-detail center'>
+        <text class='font18 font-brown'>促销促销促销</text>
+        </view>
+        <view class='promotion-content-detail center'>
+        <text class='font18 font-brown'>促销促销促</text>
+        </view>
+        <view class='promotion-content-detail center'>
+        <text class='font18 font-brown'>促销促销促销</text>
+        </view>
+      </view>
+    </block>
+    
+  </view>
+
+  <!-- 发货地 
+      为了减少重复代码
+      部分使用了促销标签的样式
+  -->
+  <view class='delivery-address'>
+      <text class='font18 inline-block address-title'>发货地</text>
+      <text class='font18  address-property' >澳大利亚</text>
+  </view>
+  <!--商品详情
+    --实为商品产地、保质期、用法等属性说明
+    --这里做了一个更名为了和图片详情区分模块
+   -->
+  <view class='product-detail-desc'>
+    <view class='detail-desc-title'>
+      <text class=' font24'>商品详情</text>
+    </view>
+    <view class='detail-desc-content'>
+      <block>
+        <view class='detail-desc-content-list center'>
+          <text class='font18 inline-block detail-title '>产地规格</text>
+          <text class='font18 inline-block detail-property' >澳大利亚澳大利亚澳大亚澳大利亚利亚澳大利亚澳大利亚澳大</text>
+        </view>
+        <view class='detail-desc-content-list center'>
+          <text class='font18 inline-block detail-title '>产地</text>
+          <text class='font18 inline-block detail-property' >澳大利亚澳</text>
+        </view>
+        <view class='detail-desc-content-list center'>
+          <text class='font18 inline-block detail-title '>产地规</text>
+          <text class='font18 inline-block detail-property' >澳大利亚澳大利亚澳大澳大</text>
+        </view>
+        <view class='detail-desc-content-list center'>
+          <text class='font18 inline-block detail-title '>产地规格</text>
+          <text class='font18 inline-block detail-property' >澳大利亚澳大利亚澳大亚澳大利亚利亚澳大利亚澳大利亚澳大</text>
+        </view>
+      </block>
+    </view>
+    <view class='product-detail-desc-bottom'>
+      <text class='font22'>点击查看更多>> </text>
+    </view>
+  </view>
+  <!--图说  -->
+  <view class='detail-desc-title'>
+    <view class='font24'>图说</view>
+    <block wx:for='{{imgUrls}}' wx:key="key">
+      <image style='width:750rpx;height:750rpx;' src='{{item}}' lazy-load='true'></image>
+    </block>
+  </view>
+  <!-- 底部购买按钮
+       包含{
+        1.普通模式
+        2.售罄模式 
+        3.团购模式：可参加
+        4.团购模式：不可参加
+       }  
+   -->
+
+  <!-- 普通购买模式 buyMode:1-->
+  <view class='footerBox' wx:if='{{buyMode == 1}}'> 
+    <view class='flex-row' >
+      <text class='font38 footerBox-left center iconfont icon-gouwuche'></text>
+      <text class='font24 footerBox-right font-white center'>加入购物车</text>
+    </view>
+  </view>
+  <!-- 售罄模式 buyMode:2 -->
+  <view class='footerBox' wx:elif='{{buyMode == 2}}'>
+    <view class='flex-row' >
+      <text class='font38 footerBox-left center iconfont icon-gouwuche'></text>
+      <text class='font24 footerBox-right font-white center'>售罄</text>
+    </view>
+  </view>
+  <!-- 团购模式 buyMode:3-->
+  <view class='groupBuyBox' wx:elif='{{buyMode == 3}}'>
+      <text class='font38 footerBox-left center iconfont icon-gouwuche'></text>
+      <view class=' footerBox-right'>
+        <view class='groupBuy-left inline-block bgc-white' bindtap='refresh'>
+          <view style='height:45rpx;'>
+          <text class='font18 font-white'>单独购买</text>
+          </view>   
+          <view style='height:45rpx;'>
+          <text class='font16 font-white'>¥10.00</text>
+          </view>   
+        </view>
+        <view class=' groupBuy-right inline-block bgc-darkBlue' bindtap='addProduct'>
+          <view style='height:45rpx;'>
+            <text class='font18 font-white'>{{2}}人团</text>
+          </view>
+          <view style='height:45rpx;'>
+            <text class='font16 font-white'>¥10000.00(还可拼{{2}}次)</text>
+          </view>
+        </view>
+      </view>
+  </view>
+  <!-- 团购模式 buyMode:4-->
+  <view class='groupBuyBox' wx:else='{{buyMode == 4}}'>
+    <text class='font38 footerBox-left center iconfont icon-gouwuche' style='border-right:5rpx solid #797d95'></text>
+    <view class=' footerBox-right'>
+      <view class='groupBuy-right inline-block bgc-white'>
+        <view style='height:45rpx;'>
+          <text class='font18 font-black'>单独购买</text>
+        </view>   
+        <view style='height:45rpx;'>
+          <text class='font16 font-black'>¥10.00</text>
+        </view>   
+      </view>
+      <view class=' groupBuy-right inline-block bgc-darkBlue' >
+        <view style='height:45rpx;'>
+          <text class='font18 font-white'>{{2}}人团</text>
+        </view>
+        <view style='height:45rpx;'>
+          <text class='font16 font-white'>次数已用光</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 详情页选择商品数量页面-->
+  <view animation="{{pageAnamition}}"  style='top:{{windowHeight}}px;left:0;' class='animationBox'>
+    <view class="animationBox-top">
+      <!-- 关闭按钮 -->
+      <icon type='cancel' color='white' class='icon-cancel' bindtap='cancelAddProduct'></icon>
+    </view>
+    <view class="animationBox-bottom">
+      <!--商品名称和价格  -->
+      <view class='font-black font20'>Blackmores 澳佳宝 天然圣洁莓 女性内分泌荷尔蒙调节片 40粒</view>
+      <view class='font-black font28'>¥20.00</view>
+      <!-- 数量选择框 -->
+      <view></view>
+      <!-- 确认按钮 -->
+    </view>  
+  </view>
+</view>

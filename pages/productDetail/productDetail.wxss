@@ -1,0 +1,212 @@
+@import '../../lib/iconfont.wxss';
+/* productDetail.wxml页面样式
+  写于2017年11月27日16:14:17
+ */
+
+
+/* 公共样式 */
+ .container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+}  
+
+.font38{font-size:19pt;}
+.font34{font-size:17pt}
+.font32{font-size:16pt}
+.font30{font-size:15pt;}
+.font28{font-size: 14pt}
+.font24{font-size: 12pt;}
+.font22{font-size: 11pt}
+.font20{font-size: 10pt;}
+.font18{font-size: 9pt}
+.font16{font-size: 8pt;}
+.bolder{font-weight: bolder}
+.bold{font-weight: bold}
+.font-white{color: white}
+.font-black{color: #353535}
+.font-red{color: #fe7378}
+.font-grey{color: gray}
+.font-brown{color: #8a6d3b}
+.font-grey-light{color:#b2b2b2;}
+.line-through{text-decoration:line-through;}
+.inline-block{display: inline-block}
+.margin-left20{margin-left: 20rpx}
+.bgc-white{background-color:#fff}
+.bgc-black{background-color:#353535}
+.bgc-darkBlue{background-color: #797d95}
+.center{justify-content: center;display: inline-flex;align-items: center}
+.hr{border:10rpx solid #e5e5e5;width: 100%}
+.flex-row{flex-direction: row;}
+.flex-column{flex-direction:column;}
+.icon-cancel{float:right;color: #fff;margin: 20rpx;}
+/* 商品图片 */
+/* 倒计时 */
+.countDown{
+  width: 100%;
+  height: 60rpx;
+  text-align: center;
+}
+.countDown-box{
+  width: 15pt;
+  height: 15pt;
+  background-color: #fff;
+  border-radius: 10rpx;
+  margin:5rpx;
+}
+.product-img{width: 100%;}
+/* 商品价格 & 名称 */
+.product-info{
+  width: 100%;
+  text-align: center;
+  padding: 20rpx 0 20rpx 0;
+  border-bottom: 20rpx solid #f1f2f3;
+}
+.product-info-price{
+  margin-top: 20rpx;
+  margin-bottom: 10rpx;
+}
+.product-info-name{
+  width: 700rpx;
+}
+/* 促销标签 */
+.product-promotion-label{
+  flex-direction: row;
+  justify-content:center;
+  align-items:center;
+  display: inline-flex;
+  padding: 5rpx 0rpx 5rpx 0rpx;
+  border-bottom: 20rpx solid #f1f2f3;
+}
+.promotion-text-left{
+  width: 100rpx;
+}
+.promotion-text-right{
+  width: 650rpx;
+  margin-left: 10rpx;
+  margin-bottom: 5rpx;
+}
+.promotion-content-detail{
+  height: 30rpx;
+  background-color: #fcf8e3;
+  border: 1rpx solid #faebcc;
+  padding: 8rpx;
+  border-radius: 5rpx;
+  margin-right: 10rpx;
+}
+/* 发货地 */
+ .delivery-address{
+  width: 100%;
+  height: 22pt;
+  border-bottom: 20rpx solid #f1f2f3;
+}
+.address-title{
+  width:150rpx;
+  padding-left: 30rpx;
+}
+.address-property{
+  width: 400rpx;
+}
+/* 商品规格 */
+.product-detail-desc{
+  width: 100%;
+  height: 425rpx;
+  border-bottom: 20rpx solid #f1f2f3;
+}
+.detail-desc-title{
+  height: 60rpx;
+  text-align: center;
+  margin-top: 10rpx;
+}
+.detail-desc-content{
+  width: 100%;
+  height: 305rpx;
+  overflow: hidden;
+}
+.detail-desc-content-list{
+  width: 100%;
+  height: 68rpx;
+  background-color: #f1f2f3;
+  margin-bottom: 10rpx;
+}
+.detail-title{
+  width:150rpx;
+  padding-left: 30rpx;
+}
+.detail-property{
+  width: 600rpx;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+.product-detail-desc-bottom{
+  height: 60rpx;
+  text-align: center;
+}
+/* 底部购买按钮 */
+.footerBox{
+  position: fixed;
+  bottom: 20rpx;
+  left: 30rpx;
+  width: 682rpx;
+  height: 90rpx;
+  text-align: center;
+}
+.footerBox-left{
+  float: left;
+  width: 150rpx;
+  height:90rpx;
+  background-color: #f1f2f3;
+  border-top-left-radius: 10rpx;
+  border-bottom-left-radius: 10rpx;
+}
+.footerBox-right{
+  float:left;
+  background-color: #5D6CAA;
+  height: 90rpx;
+  width: 530rpx;
+  border-top-right-radius: 10rpx;
+  border-bottom-right-radius: 10rpx;
+}
+.groupBuyBox{
+  position: fixed;
+  bottom: 20rpx;
+  left: 30rpx;
+  width: 682rpx;
+  height: 90rpx;
+  text-align: center;
+}
+.groupBuy-left{
+  width: 265rpx;
+  height: 90rpx;
+  /* background-color: #ff8612 */
+  background: #7B9DCF
+}
+.groupBuy-right{
+  width: 265rpx;
+  height: 90rpx;
+  /* background-color: #ff6a05; */
+  background: #5D6CAA;
+  border-top-right-radius: 10rpx;
+  border-bottom-right-radius: 10rpx;
+}
+/* 加入购物车动画模块样式 */
+.animationBox{
+  height:100%;
+  width:100%;
+  position:fixed;
+}
+.animationBox-top{
+  height:65%;
+  width:100%;
+  background:#000;
+  opacity:0.4;
+}
+.animationBox-bottom{
+  height:35%;
+  width:100%;
+  background-color:white;
+}
