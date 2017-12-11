@@ -3,8 +3,7 @@
     "pages/productDetail/productDetail",
     "pages/index/index",
     "pages/logs/logs",
-    "pages/personalCenter/personalCenter",
-    "pages/animation/animation"
+    "pages/personalCenter/personalCenter"
   ],
   "window":{
     "backgroundTextStyle":"light",

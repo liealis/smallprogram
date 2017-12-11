@@ -119,7 +119,7 @@
    -->
 
   <!-- 普通购买模式 buyMode:1-->
-  <view class='footerBox' wx:if='{{buyMode == 1}}'> 
+  <view class='footerBox' wx:if='{{buyMode == 1}}' bindtap='addProduct'> 
     <view class='flex-row' >
       <text class='font38 footerBox-left center iconfont icon-gouwuche'></text>
       <text class='font24 footerBox-right font-white center'>加入购物车</text>
@@ -136,7 +136,7 @@
   <view class='groupBuyBox' wx:elif='{{buyMode == 3}}'>
       <text class='font38 footerBox-left center iconfont icon-gouwuche'></text>
       <view class=' footerBox-right'>
-        <view class='groupBuy-left inline-block bgc-white' bindtap='refresh'>
+        <view class='groupBuy-left inline-block bgc-white' bindtap='addProduct'>
           <view style='height:45rpx;'>
           <text class='font18 font-white'>单独购买</text>
           </view>   
@@ -144,7 +144,7 @@
           <text class='font16 font-white'>¥10.00</text>
           </view>   
         </view>
-        <view class=' groupBuy-right inline-block bgc-darkBlue' bindtap='addProduct'>
+        <view class=' groupBuy-right inline-block bgc-darkBlue'>
           <view style='height:45rpx;'>
             <text class='font18 font-white'>{{2}}人团</text>
           </view>
@@ -157,7 +157,7 @@
   <!-- 团购模式 buyMode:4-->
   <view class='groupBuyBox' wx:else='{{buyMode == 4}}'>
     <text class='font38 footerBox-left center iconfont icon-gouwuche' style='border-right:5rpx solid #797d95'></text>
-    <view class=' footerBox-right'>
+    <view class=' footerBox-right' bindtap='addProduct'>
       <view class='groupBuy-right inline-block bgc-white'>
         <view style='height:45rpx;'>
           <text class='font18 font-black'>单独购买</text>
@@ -176,8 +176,7 @@
       </view>
     </view>
   </view>
-
-  <!-- 详情页选择商品数量页面-->
+  <!-- 详情页选择商品数量子页面-->
   <view animation="{{pageAnamition}}"  style='top:{{windowHeight}}px;left:0;' class='animationBox'>
     <view class="animationBox-top">
       <!-- 关闭按钮 -->
@@ -185,11 +184,18 @@
     </view>
     <view class="animationBox-bottom">
       <!--商品名称和价格  -->
-      <view class='font-black font20'>Blackmores 澳佳宝 天然圣洁莓 女性内分泌荷尔蒙调节片 40粒</view>
-      <view class='font-black font28'>¥20.00</view>
+      <view class='font-black font20' style='margin-left:10rpx;'>Blackmores 澳佳宝 天然圣洁莓 女性内分泌荷尔蒙调节片 40粒</view>
+      <view class='font-black font28 margin-top20 margin-left20'>¥20.00</view>
       <!-- 数量选择框 -->
-      <view></view>
+      <view class='num-box center'>
+        <view class='num-content'>
+          <text class='num-content-symbol inline-block' data-num='-1' bindtap='changeAmount'>-</text>
+          <text class='num-content-middle inline-block'>{{amount}}</text>
+          <text class='num-content-symbol inline-block' data-num='1' bindtap='changeAmount'>+</text>
+        </view>
+      </view>
       <!-- 确认按钮 -->
+      <view class='confirm-button font-white bgc-black' bindtap='confirmButton'>确认</view>
     </view>  
   </view>
 </view>

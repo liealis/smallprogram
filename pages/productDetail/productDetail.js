@@ -15,7 +15,8 @@ Page({
     pageAnamition:'',       //上拉加入购物车页面动画参数
     animationDown:'',
     windowWidth:'',
-    windowHeight:''
+    windowHeight:'',
+    amount: 1       //加入购物车的商品数量，初始化默认为1
   },
   onLoad: function () {
     /**
@@ -114,7 +115,7 @@ Page({
     var height = getApp().globalData.windowHeight;
     var animation = wx.createAnimation({
       duration: 1000,
-      timingFunction: 'ease',
+      timingFunction: 'ease-in-out',
       delay:0,
     })
     this.animation = animation
@@ -128,7 +129,7 @@ Page({
     var height = getApp().globalData.windowHeight;
     var animation = wx.createAnimation({
       duration: 1000,
-      timingFunction: 'ease',
+      timingFunction: 'ease-in-out',
       delay: 0,
     })
     this.animation = animation
@@ -137,5 +138,38 @@ Page({
       pageAnamition: this.animation.export()
     })
   },
-  
+  // 增减商品数量
+  changeAmount: function (e) {
+    let temporaryNum = this.data.amount;
+    let num = parseInt(e.target.dataset.num)
+    // console.log('num=' + num)
+    if (num === 1) {
+      temporaryNum = temporaryNum + 1
+      this.setData({
+        amount: temporaryNum
+      })
+      return temporaryNum;
+    }
+    else if (num === -1) {
+      if (temporaryNum <= 1) {
+        wx.showToast({
+          title: '数量最少为1',
+          duration: 2000,
+          mask: true
+        })
+      } else {
+        temporaryNum = temporaryNum - 1
+        this.setData({
+          amount: temporaryNum
+        })
+        return temporaryNum;
+      }
+    }
+  },
+  // 确认按钮
+  confirmButton: function(){
+    // 提交数据给接口
+    // 执行动画效果
+    this.cancelAddProduct()
+  }
 })
